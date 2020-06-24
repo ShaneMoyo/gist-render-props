@@ -33,7 +33,7 @@ class GistContainer extends Component {
         const { loading, error, gists } = this.state; 
         return (
             <section>
-                <h1>GistContainer</h1> 
+                <h1>Gists</h1> 
                 <Search search={this.handleSearch} loading={loading} error={error}/>
                 <Gists gists={gists}/>
             </section>     
