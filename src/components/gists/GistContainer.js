@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Gists from '../gists/gists' ; 
+import Gist from '../gists/gist';
 import github from '../../services/api'; 
+import { Switch, Route } from 'react-router-dom'; 
 
 
 class GistContainer extends Component {
@@ -30,13 +32,14 @@ class GistContainer extends Component {
     }
 
     render() {
-        const { loading, error, gists } = this.state; 
+        const { state: {loading, error, gists}, handleSearch } = this; 
         return (
             <section>
                 <h1>Gists</h1> 
-                {/* <Search search={this.handleSearch} loading={loading} error={error}/>
-                <GistList gists={gists}/> */}
-                <Gists search={this.handleSearch} loading={loading} error={error} gists={gists}/>
+                <Switch> 
+                    <Route path="/gist/:id" component={Gist} />
+                    <Route path="/" component={() => <Gists search={handleSearch} loading={loading} error={error} gists={gists}/>}/>
+                </Switch> 
             </section>     
         );
     }

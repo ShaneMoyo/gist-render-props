@@ -7,6 +7,14 @@ const github = {
             }); 
     }, 
 
+    getGistByid: function(id) { 
+        return fetch(`https://api.github.com/gists/${id}`)
+            .then( res => { 
+                if(res.status !== 200) throw new Error('Server error'); 
+                return res.json(); 
+            }); 
+    }, 
+
 }
 
 export default github; 
