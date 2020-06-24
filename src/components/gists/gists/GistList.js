@@ -1,7 +1,7 @@
 import React from 'react'; 
 
 
-export default function Gists({ gists }) { 
+export default function GistList({ gists }) { 
 
     const gistList = gists.map((gist, index) => { 
         return(
@@ -12,9 +12,7 @@ export default function Gists({ gists }) {
     }); 
 
     return (
-        <ul>
-            {gistList}
-        </ul> 
+        <ul>{gistList}</ul> 
     ); 
 
 }

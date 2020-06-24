@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Search from './Search'; 
-import Gists from './Gists'; 
+import Gists from '../gists/gists' ; 
 import github from '../../services/api'; 
 
 
 class GistContainer extends Component {
     state = { 
         gists: [],
+        loading: false, 
+        error: false, 
      }
 
     handleSearch = async username => { 
@@ -16,7 +17,6 @@ class GistContainer extends Component {
         }); 
         try { 
             const gists = await github.getGistsByUsername(username); 
-            console.log('gistsss: ', gists); 
             this.setState({
                 gists, 
                 loading: false, 
@@ -34,8 +34,9 @@ class GistContainer extends Component {
         return (
             <section>
                 <h1>Gists</h1> 
-                <Search search={this.handleSearch} loading={loading} error={error}/>
-                <Gists gists={gists}/>
+                {/* <Search search={this.handleSearch} loading={loading} error={error}/>
+                <GistList gists={gists}/> */}
+                <Gists search={this.handleSearch} loading={loading} error={error} gists={gists}/>
             </section>     
         );
     }
