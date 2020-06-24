@@ -6,7 +6,7 @@ import Resource from '../../utils/Resource';
 export default class Gist extends Component { 
     
     render() { 
-        const { gist, loading, error} = this.props;
+        const { data: { resource: gist, loading, error }} = this.props;
         
         if(loading) {
             return <p>Loading...</p>;
