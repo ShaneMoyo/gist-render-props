@@ -10,7 +10,7 @@ export default function Search({ search, loading, error }) {
     }
 
     return( 
-        <form style={{ display: 'flex', 'justify-content': 'center'}} onSubmit={event => handleSubmit(event)}>
+        <form style={{ display: 'flex', justifyContent: 'center'}} onSubmit={event => handleSubmit(event)}>
             <fieldset style={{ width: '40%'}}> 
                 <label>Search Gists: </label>
                 <input 

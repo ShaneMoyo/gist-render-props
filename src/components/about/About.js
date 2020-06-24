@@ -5,8 +5,8 @@ const About = (
         margin: 'auto',
         width: '80%', 
         display: 'flex', 
-        'justify-content': 'center', 
-        'flex-direction': 'column'
+        justifyContent: 'center', 
+        flexDirection: 'column'
     }}>
         <h1>About</h1>
         <p>

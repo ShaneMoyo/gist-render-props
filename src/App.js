@@ -18,7 +18,7 @@ function App() {
           margin: 'auto', 
           width: '30%',
           display: 'flex', 
-          'justify-content': 'space-around',
+          justifyContent: 'space-around',
         }}>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
