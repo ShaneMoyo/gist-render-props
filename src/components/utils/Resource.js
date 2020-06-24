@@ -10,11 +10,9 @@ export default class Resource extends Component {
         }
     }
     
-    async componentDidMount() { 
-        const id = this.props.match.params.id;
-        console.log('here')
+    async componentDidMount() {  
         try { 
-            const resource = await this.props.fetch(id); 
+            const resource = await this.props.fetch(); 
             console.log('resource: ', resource)
             this.setState({
                 loading: false,  

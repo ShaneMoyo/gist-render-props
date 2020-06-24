@@ -39,15 +39,7 @@ class GistContainer extends Component {
             <section>
                 <h1>Gists</h1> 
                 <Switch> 
-                    <Route path="/gist/:id" render={(props) => {
-                            return (
-                                <Resource {...props} 
-                                    fetch={github.getGistByid} 
-                                    render={ data => <Gist data={data}/> } 
-                                />
-                            );
-                        }}
-                    />   
+                    <Route path="/gist/:id"  component={Gist}/>   
                     <Route path="/" component={() => <Gists search={handleSearch} loading={loading} error={error} gists={gists}/>}/>
                 </Switch> 
             </section>     
