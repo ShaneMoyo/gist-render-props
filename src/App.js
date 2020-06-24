@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import GistContainer from './components/gists/GistContainer';
-import About from './components/about/About';  
+import About from './components/about';  
 import { 
   BrowserRouter as Router, 
   Route, 

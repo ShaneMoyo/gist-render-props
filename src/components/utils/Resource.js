@@ -13,7 +13,6 @@ export default class Resource extends Component {
     async componentDidMount() {  
         try { 
             const resource = await this.props.fetch(); 
-            console.log('resource: ', resource)
             this.setState({
                 loading: false,  
                 resource, 
