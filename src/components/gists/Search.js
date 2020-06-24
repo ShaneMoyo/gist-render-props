@@ -22,6 +22,7 @@ export default function Search({ search, loading, error }) {
                  <button type="submit">
                     {loading ? 'Searching...' : 'Search'}
                 </button> 
+                { error && <p style={{ fontSize: 12, color: 'red'}}>A server error occured. Please try again later</p>}
             </fieldset>         
         </form> 
     )

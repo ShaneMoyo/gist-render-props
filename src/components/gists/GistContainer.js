@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Search from './Search'; 
+import Gists from './Gists'; 
 import github from '../../services/api'; 
+
 
 class GistContainer extends Component {
     state = { 
@@ -28,11 +30,12 @@ class GistContainer extends Component {
     }
 
     render() {
-        const { loading, error } = this.state; 
+        const { loading, error, gists } = this.state; 
         return (
             <section>
                 <h1>GistContainer</h1> 
                 <Search search={this.handleSearch} loading={loading} error={error}/>
+                <Gists gists={gists}/>
             </section>     
         );
     }
