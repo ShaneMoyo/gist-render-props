@@ -14,11 +14,11 @@ class GistContainer extends Component {
         }); 
         try { 
             const gists = await github.getGistsByUsername(username); 
-            debugger; 
+            console.log('gistsss: ', gists); 
             this.setState({
                 gists, 
                 loading: false, 
-            })
+            }); 
         } catch (error) { 
             this.setState({ 
                 loading: false, 
@@ -28,10 +28,11 @@ class GistContainer extends Component {
     }
 
     render() {
+        const { loading, error } = this.state; 
         return (
             <section>
                 <h1>GistContainer</h1> 
-                <Search search={this.handleSearch}/>
+                <Search search={this.handleSearch} loading={loading} error={error}/>
             </section>     
         );
     }

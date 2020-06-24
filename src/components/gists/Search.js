@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 
-export default function Search({ search }) { 
+export default function Search({ search, loading, error }) { 
     const [username, setUsername] = useState(""); 
 
     const handleChange = value => setUsername(value); 
@@ -10,8 +10,8 @@ export default function Search({ search }) {
     }
 
     return( 
-        <form onSubmit={event => handleSubmit(event)}>
-            <fieldset> 
+        <form style={{ display: 'flex', 'justify-content': 'center'}} onSubmit={event => handleSubmit(event)}>
+            <fieldset style={{ width: '40%'}}> 
                 <label>Search Gists: </label>
                 <input 
                     type="text" 
@@ -20,7 +20,7 @@ export default function Search({ search }) {
                     onChange={({ target }) => handleChange(target.value)}
                 /> 
                  <button type="submit">
-                    Search
+                    {loading ? 'Searching...' : 'Search'}
                 </button> 
             </fieldset>         
         </form> 
