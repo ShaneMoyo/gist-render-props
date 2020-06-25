@@ -5,18 +5,19 @@ export default function useResource(fetch) {
     const [error, setError ] = useState(false); 
     const [resource, setResource ] = useState(null); 
 
+    async function fetchResource() {
+        try { 
+            const fetchedResource = await fetch(); 
+            setResource(fetchedResource); 
+            setLoading(false); 
+        } catch (error) { 
+            setError(true); 
+            setLoading(false); 
+        }
+     }
+
     useEffect(() => {
-        async function fetchResource() {
-            try { 
-                const fetchedResource = await fetch(); 
-                setResource(fetchedResource); 
-                setLoading(false); 
-            } catch (error) { 
-                setError(true); 
-                setLoading(false); 
-            }
-         }
-         fetchResource(); 
+        fetchResource(); 
     }, []);  
 
     return { loading, error, resource }

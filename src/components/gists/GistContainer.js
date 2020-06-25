@@ -3,7 +3,7 @@ import Gists from '../gists/gists' ;
 import Gist from '../gists/gist';
 import github from '../../services/api'; 
 import Resource from '../utils/Resource';
-import Search from '../contexts/searchContext';
+import Search from '../contexts/SearchContext';
 import { Switch, Route } from 'react-router-dom'; 
 
 
@@ -34,6 +34,7 @@ class GistContainer extends Component {
     }
 
     render() {
+        console.log('rendering GistContainer...')
        
         const { state: {loading, error, gists}, handleSearch } = this; 
         return (
@@ -41,7 +42,7 @@ class GistContainer extends Component {
                 <h1>Gists</h1> 
                 <Switch> 
                     <Route path="/gist/:id"  component={Gist}/>   
-                    <Route path="/" component={() => <Search.Provider value={{...this.state, search: this.handleSearch}}><Gists search={handleSearch} loading={loading} error={error} gists={gists}/></Search.Provider>}/>
+                    <Route path="/" component={() => <Search.Provider value={this.handleSearch}><Gists loading={loading} error={error} gists={gists}/></Search.Provider>}/>
                 </Switch> 
             </section>     
         );

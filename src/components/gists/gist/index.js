@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 export default function Gist() { 
      const { id } = useParams(); 
      const { resource: gist, loading, error } = useResource(() => github.getGistByid(id)); 
-    
+     console.log('rendering Gist...')
     if(loading) {
         return <p>Loading...</p>;
     } else if (error) {

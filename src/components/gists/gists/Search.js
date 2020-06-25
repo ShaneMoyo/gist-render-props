@@ -1,7 +1,7 @@
-import React, { useState } from 'react'; 
-import  SearchContext from '../../contexts/searchContext'; 
+import React, { useState, useMemo } from 'react'; 
+import  SearchContext from '../../contexts/SearchContext'; 
 
-export default function Search() { 
+const Search = () => { 
     const [username, setUsername] = useState(""); 
 
     const handleChange = value => setUsername(value); 
@@ -9,11 +9,11 @@ export default function Search() {
         event.preventDefault(); 
         search(username); 
     }
-
+    console.log('rendering Search...')
     return( 
         <SearchContext.Consumer>
-            { props => (
-                <form style={{ display: 'flex', justifyContent: 'center'}} onSubmit={event => handleSubmit(event, props.search)}>
+            { search => (
+                <form style={{ display: 'flex', justifyContent: 'center'}} onSubmit={event => handleSubmit(event, search)}>
                     <fieldset style={{ width: '40%'}}> 
                         <label>Search Gists: </label>
                         <input 
@@ -23,12 +23,13 @@ export default function Search() {
                             onChange={({ target }) => handleChange(target.value)}
                         /> 
                         <button type="submit">
-                            {props.loading ? 'Searching...' : 'Search'}
+                            Search
                         </button> 
-                        {props.error && <p style={{ fontSize: 12, color: 'red'}}>A server error occured. Please try again later</p>}
                     </fieldset>         
                 </form> 
             )}
         </SearchContext.Consumer>
     )
-}
+};
+
+export default Search
