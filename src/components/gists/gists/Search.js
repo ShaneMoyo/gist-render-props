@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import  Context from '../../contexts/searchContext'; 
+import  SearchContext from '../../contexts/searchContext'; 
 
 export default function Search() { 
     const [username, setUsername] = useState(""); 
@@ -11,7 +11,7 @@ export default function Search() {
     }
 
     return( 
-        <Context.Consumer>
+        <SearchContext.Consumer>
             { props => (
                 <form style={{ display: 'flex', justifyContent: 'center'}} onSubmit={event => handleSubmit(event, props.search)}>
                     <fieldset style={{ width: '40%'}}> 
@@ -29,6 +29,6 @@ export default function Search() {
                     </fieldset>         
                 </form> 
             )}
-        </Context.Consumer>
+        </SearchContext.Consumer>
     )
 }
